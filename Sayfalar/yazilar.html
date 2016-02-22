@@ -1,0 +1,13 @@
+<template name="yazilar">
+    <h1>Yazılar</h1>
+    <br>
+
+    <ul>
+        {{#each yazilar }}
+            <li>
+                {{ icerik }} <span class="fa fa-trash sil"></span>
+            </li>
+        {{/each}}
+    </ul>
+
+</template>

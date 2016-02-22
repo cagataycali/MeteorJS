@@ -5,10 +5,16 @@
 <body>
   <h1>Welcome to Meteor!</h1>
 
-  {{> hello}}
-</body>
+  <!-- Giriş çıkış işlemleri -->
+  {{> loginButtons}}
+  <!-- Giriş çıkış işlemleri -->
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
+  <!--Eğer kullanıcı giriş yapmışsa-->
+  {{#if currentUser}}
+
+        <!--Yazılar template'ini çağır-->
+        {{> yazilar }}
+
+    {{/if}}
+
+</body>

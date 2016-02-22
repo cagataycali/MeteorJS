@@ -1,23 +1,35 @@
+/**
+ * Yazılar
+ * @type {Mongo.Collection}
+ */
+Yazilar = new Mongo.Collection("Yazilar");
+
+/**
+ * Sadece istemcide çalışacak kodlar
+ */
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
+  /**
+   * Kayıtları kullanıcı adı üzerinden almak için.
+   */
+  Accounts.ui.config({
+    passwordSignupFields: "USERNAME_ONLY"
   });
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
+  console.log("Merhaba client!");
+
+  Template.yazilar.helpers({
+
+    yazilar: function () {
+
+      return Yazilar.find();
+
     }
-  });
+  })
 }
 
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
+
+  console.log("Merhaba server!");
+
 }
