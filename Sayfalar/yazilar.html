@@ -5,9 +5,23 @@
     <ul>
         {{#each yazilar }}
             <li>
-                {{ icerik }} <span class="fa fa-trash sil"></span>
+                {{ icerik }} {{ kullanici.username }} <span class="sil">SİL</span>
+
+                {{#each yorumlar}}
+                    <br>
+                    {{icerik}} {{ kullanici.username }}
+                {{/each}}
+                <br>
+                {{>yorumEkle}}
             </li>
+            <hr>
         {{/each}}
     </ul>
 
+</template>
+
+<template name="yorumEkle">
+    <form >
+        <input type="text" name="yorum_icerik" required placeholder="Yorumunuzu giriniz..">
+    </form>
 </template>
